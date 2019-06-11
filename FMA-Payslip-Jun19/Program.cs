@@ -6,12 +6,11 @@ namespace FMA_Payslip_Jun19
     {
         static void Main(string[] args)
         {
-            IUserInput userInput = new ConsoleUserInput();
+            IUserInput userInput = new CSVUserInput();
             PayslipCalculatorDriver payslipCalculatorDriver = new PayslipCalculatorDriver(new EmployeeValidator(), new PayslipCalculator(), userInput);
 
             payslipCalculatorDriver.ExecutePayrun();
         }
-
         
     }
 }

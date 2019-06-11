@@ -11,10 +11,11 @@ namespace FMA_Payslip_Jun19_Tests
         [Fact]
         public void calculateGrossIncome_calculatesGrossIncome_correctly()
         {
-            PayslipCalculator payslipCalculator = new PayslipCalculator();
+            var payslipCalculator = new PayslipCalculator();
+            var testEmployee = new Employee("John Smith", 60050, 0.09m, "March 1", "March 31");
             var expectedGrossIncome = 5004;
-
-            var actualGrossIncome = payslipCalculator.CalculateGrossIncome(60050);
+            
+            var actualGrossIncome = payslipCalculator.CreatePayslip(testEmployee).GrossIncome;
             
             Assert.Equal(expectedGrossIncome, actualGrossIncome);
         }
@@ -22,10 +23,11 @@ namespace FMA_Payslip_Jun19_Tests
         [Fact]
         public void calculateNetIncome_calculatesNetIncome_correctly()
         {
-            PayslipCalculator payslipCalculator = new PayslipCalculator();
+            var payslipCalculator = new PayslipCalculator();
+            var testEmployee = new Employee("John Smith", 60050, 0.09m, "March 1", "March 31");
             var expectedNetIncome = 4082;
 
-            var actualNetIncome = payslipCalculator.CalculateNetIncome(5004, 922);
+            var actualNetIncome = payslipCalculator.CreatePayslip(testEmployee).NetIncome;
             
             Assert.Equal(expectedNetIncome, actualNetIncome);
         }
@@ -33,10 +35,11 @@ namespace FMA_Payslip_Jun19_Tests
         [Fact]
         public void calculateSuperPaid_calculatesSuperPaid_correctly()
         {
-            PayslipCalculator payslipCalculator = new PayslipCalculator();
+            var payslipCalculator = new PayslipCalculator();
+            var testEmployee = new Employee("John Smith", 60050, 0.09m, "March 1", "March 31");
             var expectedSuperPaid = 450;
 
-            var actualSuperPaid = payslipCalculator.CalculateSuperPaid(5004, 0.09m);
+            var actualSuperPaid = payslipCalculator.CreatePayslip(testEmployee).SuperPaid;
             
             Assert.Equal(expectedSuperPaid, actualSuperPaid);
         }

@@ -1,12 +1,13 @@
 using System;
+using System.Collections.Generic;
 
 namespace FMA_Payslip_Jun19
 {
     public class PayslipCalculatorDriver
     {
-        private EmployeeValidator _employeeValidator;
-        private PayslipCalculator _payslipCalculator;
-        private IUserInput _userInput;
+        private readonly EmployeeValidator _employeeValidator;
+        private readonly PayslipCalculator _payslipCalculator;
+        private readonly IUserInput _userInput;
 
         public PayslipCalculatorDriver(EmployeeValidator employeeValidator, PayslipCalculator payslipCalculator, IUserInput userInput)
         {
@@ -17,20 +18,30 @@ namespace FMA_Payslip_Jun19
 
         public void ExecutePayrun()
         {
-            var employee = _userInput.GetEmployeeDetails();
-            
-            if (_employeeValidator.EmployeeIsValid(employee))
+            var employees = _userInput.CreateEmployees();
+            var payslips = CreatePayslips(employees);
+            foreach (var payslip in payslips)
             {
-                var payslip = _payslipCalculator.CreatePayslip(employee);
-                Console.WriteLine(payslip);
+                Console.WriteLine(payslip + "\n");
             }
-            else
-            {
-                Console.WriteLine("Bad employee details entered, no payslip created");
-            }
-            
         }
+        
+        private List<Payslip> CreatePayslips(List<Employee> employees)
+        {
+            var payslips = new List<Payslip>();
+            foreach (var employee in employees)
+            {
+                if (_employeeValidator.EmployeeIsValid(employee))
+                {
+                    payslips.Add(_payslipCalculator.CreatePayslip(employee));
+                }
+                else
+                {
+                    Console.WriteLine($"Employee details for {employee.Name} are invalid, no payslip created \n");
+                }
+            }
 
-     
+            return payslips;
+        }
     }
 }

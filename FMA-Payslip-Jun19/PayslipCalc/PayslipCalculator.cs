@@ -17,8 +17,8 @@ namespace FMA_Payslip_Jun19
             
             return payslip;
         }
-        
-        public decimal CalculateGrossIncome(decimal salary)
+
+        private decimal CalculateGrossIncome(decimal salary)
         {
             return decimal.Round(salary / 12);
         }
@@ -48,13 +48,13 @@ namespace FMA_Payslip_Jun19
             return incomeTax;
         }
 
-        public decimal CalculateNetIncome(decimal grossIncome, decimal incomeTax)
+        private decimal CalculateNetIncome(decimal grossIncome, decimal incomeTax)
         {
             return grossIncome - incomeTax;
         }
-        
 
-        public decimal CalculateSuperPaid(decimal grossIncome, decimal superRate)
+
+        private decimal CalculateSuperPaid(decimal grossIncome, decimal superRate)
         {
             return decimal.Round(grossIncome * superRate);
         }

@@ -4,10 +4,9 @@ namespace FMA_Payslip_Jun19
     {
         private string EmployeeName { get; }
         private string PayPeriod { get; }
-        private decimal GrossIncome { get; }
-        private decimal NetIncome { get; }
-        private decimal SuperPaid { get; }
-        
+        public decimal GrossIncome { get; }
+        public decimal NetIncome { get; }
+        public decimal SuperPaid { get; }
 
         public Payslip(string employeeName, string payPeriod, decimal grossIncome, decimal netIncome, decimal superPaid)
         {

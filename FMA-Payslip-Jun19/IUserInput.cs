@@ -1,7 +1,10 @@
+using System.Collections.Generic;
+
 namespace FMA_Payslip_Jun19
 {
     public interface IUserInput
     {
-        Employee GetEmployeeDetails();
+        List<Employee> CreateEmployees();
+        
     }
 }
