@@ -7,9 +7,15 @@ namespace FMA_Payslip_Jun19
 {
     public class CSVUserInput : IUserInput
     {
+        private readonly string _fileLocation;
+        public CSVUserInput(string fileLocation)
+        {
+            _fileLocation = fileLocation;
+        }
+
         public List<Employee> CreateEmployees()
         {
-            List<Employee> employees = File.ReadAllLines("./input/sample_input.csv")
+            List<Employee> employees = File.ReadAllLines(_fileLocation)
                 .Skip(1)
                 .Select(CreateEmployeeFromCSVLine)
                 .ToList();
