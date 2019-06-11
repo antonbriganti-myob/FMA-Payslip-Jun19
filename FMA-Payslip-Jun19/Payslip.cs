@@ -17,5 +17,14 @@ namespace FMA_Payslip_Jun19
             NetIncome = netIncome;
             SuperPaid = superPaid;
         }
+
+        public override string ToString()
+        {
+            return "Employee: " + EmployeeName + "\n" +
+                   "Pay Period: " + PayPeriod + "\n" +
+                   "Gross Income: " + GrossIncome + "\n" +
+                   "Net Income: " + NetIncome + "\n" +
+                   "Super Paid: " + SuperPaid;
+        }
     }
 }

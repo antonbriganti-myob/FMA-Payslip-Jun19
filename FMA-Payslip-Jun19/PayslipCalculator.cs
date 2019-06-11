@@ -7,7 +7,7 @@ namespace FMA_Payslip_Jun19
     {
         public Payslip CreatePayslip(Employee employee)
         {
-            var payPeriod = employee.PayPeriodStartDate + " " + employee.PayPeriodEndDate;
+            var payPeriod = employee.PayPeriodStartDate + " - " + employee.PayPeriodEndDate;
             var grossIncome = CalculateGrossIncome(employee.Salary);
             var incomeTax = CalculateIncomeTax(employee.Salary);
             var netIncome = CalculateNetIncome(grossIncome, incomeTax);
