@@ -1,5 +1,3 @@
-using System;
-
 namespace FMA_Payslip_Jun19
 {
     public class Employee

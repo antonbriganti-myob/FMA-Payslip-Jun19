@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using FMA_Payslip_Jun19;
 using Xunit;
 

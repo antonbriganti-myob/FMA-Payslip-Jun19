@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks.Sources;
 using FMA_Payslip_Jun19;
 using Xunit;
 

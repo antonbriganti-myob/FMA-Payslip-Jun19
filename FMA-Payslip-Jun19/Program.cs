@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FMA_Payslip_Jun19
+﻿namespace FMA_Payslip_Jun19
 {
     class Program
     {
