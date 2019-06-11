@@ -56,7 +56,7 @@ namespace FMA_Payslip_Jun19_Tests
         {
             PayslipCalculator payslipCalculator = new PayslipCalculator();
 
-            decimal actualIncomeTax = payslipCalculator.calculateIncomeTax(testSalary);
+            decimal actualIncomeTax = payslipCalculator.CalculateIncomeTax(testSalary);
             
             Assert.Equal(expectedIncomeTax, actualIncomeTax);
         }

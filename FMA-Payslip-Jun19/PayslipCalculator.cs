@@ -5,14 +5,25 @@ namespace FMA_Payslip_Jun19
 {
     public class PayslipCalculator
     {
-        
+        public Payslip CreatePayslip(Employee employee)
+        {
+            var payPeriod = employee.PayPeriodStartDate + " " + employee.PayPeriodEndDate;
+            var grossIncome = CalculateGrossIncome(employee.Salary);
+            var incomeTax = CalculateIncomeTax(employee.Salary);
+            var netIncome = CalculateNetIncome(grossIncome, incomeTax);
+            var superPaid = CalculateSuperPaid(grossIncome, employee.SuperRate);
+            
+            var payslip = new Payslip(employee.Name, payPeriod, grossIncome, netIncome, superPaid);
+            
+            return payslip;
+        }
         
         public decimal CalculateGrossIncome(decimal salary)
         {
             return decimal.Round(salary / 12);
         }
 
-        public decimal calculateIncomeTax(decimal salary)
+        public decimal CalculateIncomeTax(decimal salary)
         {
             decimal incomeTax = 0;
             
