@@ -20,6 +20,6 @@ steps:
 
 - task: AzureCLI@1
   inputs:
-    azureSubscription: 'Visual Studio Professional'
+    azureSubscription: 'AzureCLITest'
     scriptLocation: 'scriptPath'
     scriptPath: './azureCLIScript'
