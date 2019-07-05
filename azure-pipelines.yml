@@ -20,6 +20,6 @@ steps:
 
 - task: AzureCLI@1
   inputs:
-    azureSubscription: 'HelloWorldFMA'
+    azureSubscription: 'Visual Studio Professional'
     scriptLocation: 'scriptPath'
     scriptPath: './azureCLIScript'
